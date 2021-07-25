@@ -66,7 +66,7 @@
         "processing": true,
         "ordering": false,
         "serverSide": true,
-        "ajax": "{{ route('points.list') }}",
+        "ajax": "/getpoints",
         "columns": [
             { "data": "name", 
             "className": 'font-weight-bold', 
