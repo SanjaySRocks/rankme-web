@@ -14,8 +14,7 @@ use App\Http\Controllers\SteamController;
 |
 */
 
-Route::get('/getpoints', [StatsController::class, 'getPoints'])->name('points.list');
-
+Route::get('/getData/{id}', [StatsController::class, 'getPoints']);
 
 // -------------------------------- dashboard -------------------------------------- //
 

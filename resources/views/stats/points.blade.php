@@ -66,7 +66,7 @@
         "processing": true,
         "ordering": false,
         "serverSide": true,
-        "ajax": "/getpoints",
+        "ajax": "/getData/1",
         "columns": [
             { "data": "name", 
             "className": 'font-weight-bold', 

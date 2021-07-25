@@ -97,9 +97,38 @@ class StatsController extends Controller
         return view('stats.mvps', ['users' => $users]);
     }
 
-    public function getPoints()
+    public function getPoints($id)
     {
-        $query = DB::table('rankme')->select('id','steam','name','score')->orderBy('score', 'DESC');
+        switch($id)
+        {
+            // Points
+            case "1": 
+                    $query = DB::table('rankme')->select('id','steam','name','score', 'deaths')->orderBy('score', 'DESC');
+                    break;
+
+            //Kills
+            case "2": 
+                    $query = DB::table('rankme')->select('id','steam','name','kills')->orderBy('kills', 'DESC');
+                    break;
+
+            // headshot
+            case "3": 
+                    $query = DB::table('rankme')->select('id','steam','name','head')->orderBy('head', 'DESC');
+                    break;
+
+            // knife
+            case "4": 
+                    $query = DB::table('rankme')->select('id','steam','name','knife')->orderBy('knife', 'DESC');
+                    break;
+
+            // mvp
+            case "5": 
+                    $query = DB::table('rankme')->select('id','steam','name','mvp')->orderBy('mvp', 'DESC');
+                    break;
+
+            // default: $query = DB::table('rankme')->select('id','steam','name','score', 'deaths')->orderBy('score', 'DESC');
+        }
+
         return DataTables::queryBuilder($query)->toJson();
     }
 }

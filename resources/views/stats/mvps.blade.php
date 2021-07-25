@@ -23,13 +23,13 @@
                   </tr>
               </thead>
               <tbody>
-                @foreach ($users as $user)
+                {{-- @foreach ($users as $user)
                 <tr>
                 <th><a href="player/{{ $user->id }}"> {{ $user->name }} </a></th>
                 <th>{{ $user->steam }}</th>
                 <th>{{ $user->mvp }}</th>
                 </tr>
-                @endforeach
+                @endforeach --}}
               </tbody>
               <tfoot>
                   <tr>
@@ -51,10 +51,24 @@
 
 @section('script')
 <script>
-  $(document).ready(function() {
+$(document).ready(function() {
     $('#example').DataTable(
       {
-        "ordering": false
+        "processing": true,
+        "ordering": false,
+        "serverSide": true,
+        "ajax": "/getData/5",
+        "columns": [
+            { "data": "name", 
+            "className": 'font-weight-bold', 
+            fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+              $(nTd).html("<a href='{{ url('player') }}/"+oData.id+"'>"+oData.name+"</a>");
+            }
+        
+         },
+            { "data": "steam" },
+            { "data": "mvp" }
+        ]
       }
     );
 } );
