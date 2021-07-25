@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Steam;
-
+use DataTables;
 
 class StatsController extends Controller
 {
@@ -37,11 +37,11 @@ class StatsController extends Controller
         if(!session()->get('user'))
             return redirect('login');
 
-        $users = cache()->remember('stats-points', 600, function () {
-            return DB::table('rankme')->orderBy('score', 'DESC')->get();
-        });
+        // $users = cache()->remember('stats-points', 600, function () {
+        //     return DB::table('rankme')->orderBy('score', 'DESC')->get();
+        // });
         
-        return view('stats.points', ['users' => $users]);
+        return view('stats.points');
     }
 
     public function funcHeadshots()
@@ -95,5 +95,11 @@ class StatsController extends Controller
         });
 
         return view('stats.mvps', ['users' => $users]);
+    }
+
+    public function getPoints()
+    {
+        $query = DB::table('rankme')->select('id','steam','name','score')->orderBy('score', 'DESC');
+        return DataTables::queryBuilder($query)->toJson();
     }
 }

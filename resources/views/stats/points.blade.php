@@ -20,11 +20,11 @@
                       <th>Player</th>
                       <th>Steam ID</th>
                       <th>Points</th>
-                      <th>K/D</th>
+                      {{-- <th>K/D</th> --}}
                   </tr>
               </thead>
               <tbody>
-                @foreach ($users as $user)
+                {{-- @foreach ($users as $user)
                 <tr>
                 <th><a href="{{ route('player', ['id'=> $user->id]) }}"> {{ $user->name }} </a> </th>
                 <th>{{ $user->steam }}</th>
@@ -37,7 +37,7 @@
                   @endif
                 </th>
                 </tr>
-                @endforeach
+                @endforeach --}}
 
               </tbody>
               <tfoot>
@@ -45,7 +45,7 @@
                     <th>Player</th>
                     <th>Steam ID</th>
                     <th>Points</th>
-                    <th>K/D</th>
+                    {{-- <th>K/D</th> --}}
                   </tr>
               </tfoot>
           </table>
@@ -63,7 +63,21 @@
   $(document).ready(function() {
     $('#example').DataTable(
       {
-        "ordering": false
+        "processing": true,
+        "ordering": false,
+        "serverSide": true,
+        "ajax": "{{ route('points.list') }}",
+        "columns": [
+            { "data": "name", 
+            "className": 'font-weight-bold', 
+            fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+              $(nTd).html("<a href='{{ url('player') }}/"+oData.id+"'>"+oData.name+"</a>");
+            }
+        
+         },
+            { "data": "steam" },
+            { "data": "score" }
+        ]
       }
     );
 } );
