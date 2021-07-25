@@ -11,8 +11,8 @@ class StatsController extends Controller
 {
     public function dashboard()
     {
-        if(!session()->get('user'))
-            return redirect('login');
+        // if(!session()->get('user'))
+        //     return redirect('login');
 
             
         $totalp = DB::table('rankme')->count();
@@ -23,8 +23,8 @@ class StatsController extends Controller
 
     public function funcPlayerStats(Request $request)
     {
-        if(!session()->get('user'))
-            return redirect('login');
+        // if(!session()->get('user'))
+        //     return redirect('login');
 
 
         $users = DB::table('rankme')->find($request->id);
@@ -34,67 +34,46 @@ class StatsController extends Controller
 
     public function funcPoints()
     {
-        if(!session()->get('user'))
-            return redirect('login');
+        // if(!session()->get('user'))
+        //     return redirect('login');
 
-        // $users = cache()->remember('stats-points', 600, function () {
-        //     return DB::table('rankme')->orderBy('score', 'DESC')->get();
-        // });
         
         return view('stats.points');
     }
 
     public function funcHeadshots()
     {
-        if(!session()->get('user'))
-            return redirect('login');
+        // if(!session()->get('user'))
+        //     return redirect('login');
 
 
-        $users = cache()->remember('stats-head', 600, function () {
-            return DB::table('rankme')->orderBy('head', 'DESC')->get();
-        });
-
-        return view('stats.headshots', ['users' => $users]);
+        return view('stats.headshots');
     }
 
     public function funcKnifes()
     {
-        if(!session()->get('user'))
-            return redirect('login');
+        // if(!session()->get('user'))
+        //     return redirect('login');
 
 
-        $users = cache()->remember('stats-knife', 600, function () {
-            return DB::table('rankme')->orderBy('knife', 'DESC')->get();
-        });
-
-        return view('stats.knifes', ['users' => $users]);
+        return view('stats.knifes');
     }
 
     public function funcKills()
     {
-        if(!session()->get('user'))
-            return redirect('login');
+        // if(!session()->get('user'))
+        //     return redirect('login');
 
 
-        $users = cache()->remember('stats-kill', 600, function () {
-            return DB::table('rankme')->orderBy('kills', 'DESC')->get();
-        });
-
-
-        return view('stats.kills', ['users' => $users]);
+        return view('stats.kills');
     }
 
     public function funcMVPS()
     {
-        if(!session()->get('user'))
-            return redirect('login');
+        // if(!session()->get('user'))
+        //     return redirect('login');
 
-
-        $users = cache()->remember('stats-mvp', 600, function () {
-            return DB::table('rankme')->orderBy('mvp', 'DESC')->get();
-        });
-
-        return view('stats.mvps', ['users' => $users]);
+        return view('stats.mvps');
     }
 
     public function getPoints($id)

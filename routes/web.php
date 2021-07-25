@@ -46,10 +46,10 @@ Route::get('/clear-cache', function() {
 });
 
 
-Route::get('login', function(){
-    return view('welcome');
-});
+// Route::get('login', function(){
+//     return view('welcome');
+// });
 
-Route::get('auth/steam', [SteamController::class, 'redirectToSteam'])->name('auth.steam');
-Route::get('auth/steam/handle', [SteamController::class, 'handle'])->name('auth.steam.handle');
-Route::get('logout', [SteamController::class, 'logout'])->name('logout');
+// Route::get('auth/steam', [SteamController::class, 'redirectToSteam'])->name('auth.steam');
+// Route::get('auth/steam/handle', [SteamController::class, 'handle'])->name('auth.steam.handle');
+// Route::get('logout', [SteamController::class, 'logout'])->name('logout');

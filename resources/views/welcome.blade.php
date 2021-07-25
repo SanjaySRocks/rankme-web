@@ -86,7 +86,6 @@
     <div class="card">
         <div class="card-header">Login</div>
         <div class="card-body">
-          {{-- <h5 class="card-title">Login to view your stats </h5> --}}
           <p class="card-text">
             <a href="{{ route('auth.steam') }}"> <img src="https://community.akamai.steamstatic.com/public/images/signinthroughsteam/sits_01.png"> </a>
           </p>
