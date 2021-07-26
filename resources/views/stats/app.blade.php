@@ -25,7 +25,7 @@
 <body>
 
 
-<!--Main Navigation-->
+  <!--Main Navigation-->
 <header>
     <!-- Sidebar -->
     <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">

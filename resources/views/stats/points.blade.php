@@ -64,6 +64,8 @@
     $('#example').DataTable(
       {
         "processing": true,
+        "language": {
+            "processing": '<div class="spinner-border text-danger" role="status"></div> Loading...'},
         "ordering": false,
         "serverSide": true,
         "ajax": "/getData/1",
