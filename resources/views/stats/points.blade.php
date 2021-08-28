@@ -2,9 +2,6 @@
 @section('points','active')
 
 @section('content')
-<main style="margin-top: 58px">
-    <div class="container pt-4">
-      <!-- Section: Main chart -->
       <section class="mb-4">
         <div class="card">
           <div class="card-header py-3">
@@ -54,8 +51,6 @@
           </div>
         </div>
       </section>
-    </div>
-  </main>
 @endsection
 
 @section('script')

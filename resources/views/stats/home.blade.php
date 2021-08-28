@@ -2,13 +2,10 @@
 @section('main','active')
     
 @section('content')
-<main style="margin-top: 58px">
-    <div class="container pt-4">
-      <!-- Section: Main chart -->
       <section class="mb-4">
         <div class="card">
           <div class="card-header py-3">
-            <h5 class="mb-0 text-center"><strong>Statistics</strong></h5>
+            <h5 class="mb-0 text-center"><strong>Real time Statistics</strong></h5>
           </div>
           <div class="card-body">
             
@@ -69,8 +66,6 @@
           </div>
         </div>
       </section>
-    </div>
-  </main>
 @endsection
 
 
